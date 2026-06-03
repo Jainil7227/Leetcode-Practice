@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>      // 3 June 2026
 #include <vector>
 #include <unordered_map>
 using namespace std;
@@ -7,17 +7,21 @@ public:
     int majorityElement(vector<int>& nums) 
     {
         int n=nums.size();
-        int ans=nums[0];
-        unordered_map<int,int> freq;
+        int count=0,cand;
         for (int i=0;i<n;i++)
         {
-            freq[nums[i]]++;
+            if(count==0)
+            {
+                cand=nums[i];
+                count++;
+            }
+            else
+            {
+                if (cand==nums[i]){count++;}
+                else {count--;}
+            }
         }
-        for (auto x : freq)
-        {
-            if (x.second>n/2) return x.first;
-        }
-        return 0;
+        return cand;
     }
 };
 int main()

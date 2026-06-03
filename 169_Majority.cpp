@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
 using namespace std;
 class Solution {
 public:
@@ -24,10 +23,18 @@ public:
         return cand;
     }
 };
-int main()
+int main ()
 {
-    vector<int> nums={2,2,1,1,1,2,2};
     Solution s;
-    cout<<s.majorityElement(nums)<<endl;
+    int n;
+    cout<<"Enter the number of elements: ";
+    cin >> n;
+    vector<int> nums(n);
+    cout<<"Enter the elements: ";
+    for (int i=0;i<n;i++)
+    {
+        cin >> nums[i];
+    }
+    cout << "The majority element is: " << s.majorityElement(nums) << endl;
     return 0;
 }
